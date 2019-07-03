@@ -12,5 +12,5 @@ When submitting a job slurm can reserve a number of CPU cores, but tensorflow sp
 
 ## Examples available
 
-- horovod calculation in the folder [mnist_horovod_example](mnist_horovod_example/)
-- multiple parallel calculations on a single node: [multiple_calculation_one_node](multiple_calculation_one_node)
+- horovod calculation in the folder [mnist_horovod_example](mnist_horovod_example/README.md)
+- multiple parallel calculations on a single node: [multiple_calculation_one_node](multiple_calculation_one_node/README.md)
