@@ -15,7 +15,7 @@ parser.add_argument("--gpu")
 args = parser.parse_args()
 
 if args.gpu is not None:
-    os.environ["CUDA_VISIBLE_DEVICE"] = args.gpu
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
 import keras
 from keras.datasets import mnist
