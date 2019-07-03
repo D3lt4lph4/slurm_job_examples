@@ -1,4 +1,8 @@
 from __future__ import print_function
+
+from os import environ
+from os.path import join
+
 import keras
 from keras.datasets import mnist
 from keras.models import Sequential
@@ -101,7 +105,7 @@ callbacks = [
 
 # Horovod: save checkpoints only on worker 0 to prevent other workers from corrupting them.
 if hvd.rank() == 0:
-    callbacks.append(keras.callbacks.ModelCheckpoint('./checkpoint-{epoch}.h5'))
+    callbacks.append(keras.callbacks.ModelCheckpoint(join(environ["LOCAL_WORK_DIR"], './checkpoint-{epoch}.h5')))
 
 # Set up ImageDataGenerators to do data augmentation for the training images.
 train_gen = ImageDataGenerator(rotation_range=8, width_shift_range=0.08, shear_range=0.3,
