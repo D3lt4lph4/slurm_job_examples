@@ -12,6 +12,18 @@ from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 from keras import backend as K
 
+import argparse
+import os
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--gpu")
+
+args = parser.parse_args()
+
+if args.gpu is not None:
+    os.environ["CUDA_VISIBLE_DEVICE"] = args.gpu
+
 batch_size = 128
 num_classes = 10
 epochs = 12
@@ -55,6 +67,8 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
+callbacks = [keras.callbacks.ModelCheckpoint(os.path.join(os.environ["LOCAL_WORK_DIR"], './checkpoint-{epoch}.h5'))]
+
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),
               metrics=['accuracy'])
@@ -63,7 +77,9 @@ model.fit(x_train, y_train,
           batch_size=batch_size,
           epochs=epochs,
           verbose=1,
+          callbacks=callbacks,
           validation_data=(x_test, y_test))
+
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
