@@ -21,4 +21,5 @@
 module load cuda/9.0
 module load python3-DL/3.6.1
 
+# Starting the calculation
 srun python3 /home/2017018/bdegue01/git/slurm_job_examples/mnist_horovod_example/mnist_horovod_example.py
