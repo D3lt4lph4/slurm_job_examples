@@ -59,7 +59,6 @@ model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
 callbacks = [keras.callbacks.ModelCheckpoint(os.path.join(os.environ["LOCAL_WORK_DIR"], 'checkpoint-{epoch}.h5'))]
-os.makedirs(os.path.join(os.environ["LOCAL_WORK_DIR"]))
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),
               metrics=['accuracy'])
