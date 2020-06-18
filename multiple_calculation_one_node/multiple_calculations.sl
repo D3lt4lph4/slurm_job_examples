@@ -8,7 +8,7 @@
 #SBATCH --time 48:00:00
 #SBATCH --mem 100000 
 #SBATCH --mail-type ALL
-#SBATCH --mail-user benjamin.deguerre@insa-rouen.fr
+#SBATCH --mail-user user@stuff.fr
 #SBATCH --partition gpu_p100
 #SBATCH --gres gpu:2
 #SBATCH --nodes 1

@@ -8,7 +8,14 @@ from __future__ import print_function
 import argparse
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--gpu")
+
+args = parser.parse_args()
+
+if args.gpu is not None:
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
 import keras
 from keras.datasets import mnist
