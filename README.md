@@ -98,9 +98,9 @@ The bash commands are all the commands used to prepare and start your calculatio
 
 A few recommendations are given to the users, they are here to simplify the work of the support in case of problems and to avoid taking resources that one don't need from others.
 
-### Virtual environnement
+### Virtual environnement
 
-It is not recommended to use virtual environnement for various reasons, rather, one should prefer loading a python module and redefining the path to save the different packages:
+It is not recommended to use virtual environnement for various reasons. Rather, one should prefer loading a python module and redefining the path to save the different packages:
 
 ```bash
 module load python3-DL/3.6.1
@@ -110,11 +110,11 @@ export PYTHONUSERBASE=/path/to/my/dir/to/save/packages
 pip install numpy --user
 ```
 
-Please not that loading and stuff can be done out of a slurm script.
+Please not that loading and installing and stuff can be done out of a slurm script.
 
 ### Sharing the system with others
 
-When starting calculation on a distributed system, please always be aware that other users may want to use the system. Thus if you do not plan to use all the resources of a node, do not put the "exclusive" option, use the "share". If the "share" option is used, be aware that slurm will only lock one CPU core if the desired number is not specified.
+When starting calculation on a distributed system, please always be aware that other users may want to use the system. Thus if you do not plan to use all the resources of a node, do not put the "exclusive" option, use instead "share". If the "share" option is used, be aware that **slurm will only lock one CPU core if the desired number is not specified.**
 
 The recommendation is, if there is no special need for a high number of CPUs to ask for N_CPU * N_RESERVED_GPU / N_GPU. For instance on a node with 4 GPUs and 32 CPUs it is recommended to ask for 8 CPUs per reserved GPU.
 
