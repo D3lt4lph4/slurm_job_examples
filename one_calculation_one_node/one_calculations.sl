@@ -19,4 +19,4 @@ module load cuda/9.0
 module load python3-DL/keras/2.2.4
 
 # Start the calculation on the first gpu
-python3 mnist.py
+srun python3 mnist.py
