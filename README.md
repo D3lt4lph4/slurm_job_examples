@@ -92,7 +92,7 @@ The script can be roughly divided into 2 parts:
 
 The #SBATCH tag is used to pass options to SLURM. All the option used are detailed above, but one thing still needs to be highlighted. SLURM will read all your parameters and try to fit your job in the schedule, as the resources on nodes are limited, if you demand too much your job may start way later than it could have. For instance, if my job requires 1 hour of calculations any 1 hour gap (or longer) in the schedule could be used but if I ask for 24 hours, SLURM will try to find a 24 hours gap in the schedule (which may postpone the start of the training). The same goes for any parameters, asking for more than required is mostly risking to have the job postponed.
 
-The bash commands are the command you would run to run your calculation. Here we can see that two modules are loaded and then the actual script is started.
+The bash commands are all the commands used to prepare and start your calculation. Here we can see that two modules are loaded and then the calculation script is started.
 
 ## Usage recommendations
 
