@@ -8,14 +8,7 @@ from __future__ import print_function
 import argparse
 import os
 
-parser = argparse.ArgumentParser()
-
-parser.add_argument("--gpu")
-
-args = parser.parse_args()
-
-if args.gpu is not None:
-    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
 import keras
 from keras.datasets import mnist
@@ -56,9 +49,8 @@ y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
 model = Sequential()
-model.add(Conv2D(32, kernel_size=(3, 3),
-                 activation='relu',
-                 input_shape=input_shape))
+model.add(
+    Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
 model.add(Conv2D(64, (3, 3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
@@ -67,13 +59,21 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
-callbacks = [keras.callbacks.ModelCheckpoint(os.path.join(os.environ["LOCAL_WORK_DIR"], os.environ["CUDA_VISIBLE_DEVICES"], 'checkpoint-{epoch}.h5'))]
-os.makedirs(os.path.join(os.environ["LOCAL_WORK_DIR"], os.environ["CUDA_VISIBLE_DEVICES"]))
+callbacks = [
+    keras.callbacks.ModelCheckpoint(
+        os.path.join(os.environ["LOCAL_WORK_DIR"],
+                     os.environ["CUDA_VISIBLE_DEVICES"],
+                     'checkpoint-{epoch}.h5'))
+]
+os.makedirs(
+    os.path.join(os.environ["LOCAL_WORK_DIR"],
+                 os.environ["CUDA_VISIBLE_DEVICES"]))
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),
               metrics=['accuracy'])
 
-model.fit(x_train, y_train,
+model.fit(x_train,
+          y_train,
           batch_size=batch_size,
           epochs=epochs,
           verbose=1,
