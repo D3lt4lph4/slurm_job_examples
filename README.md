@@ -96,7 +96,21 @@ The bash commands are the command you would run to run your calculation. Here we
 
 ## Usage recommendations
 
-A few recommendations are given to the users, they are here to simplify the work of the support in case of problems and to avoid taking resources that one don't need from others
+A few recommendations are given to the users, they are here to simplify the work of the support in case of problems and to avoid taking resources that one don't need from others.
+
+### Virtual environnement
+
+It is not recommended to use virtual environnement for various reasons, rather, one should prefer loading a python module and redefining the path to save the different packages:
+
+```bash
+module load python3-DL/3.6.1
+
+export PYTHONUSERBASE=/path/to/my/dir/to/save/packages
+
+pip install numpy --user
+```
+
+Please not that loading and stuff can be done out of a slurm script.
 
 ### Sharing the system with others
 
