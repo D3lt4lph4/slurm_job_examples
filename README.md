@@ -18,7 +18,7 @@ The GPUs are sorted from the less powerful (K80) to the most powerful (V100). Pl
 
 MYRIA is a super-calculator shared by many users, hence it needs a system to handle calculations from many users with very different requirements in softwares. To solve both of these problems, SLURM and a module system are used.
 
-SLURM allow for various users to queue their calculations (jobs). SLURM will then automatically schedule jobs so that the computation resources are used at their maximum. 
+SLURM allow for various users to queue their calculations (jobs). SLURM will then automatically schedule jobs so that the computation resources are used at their maximum.
 
 The module system allows for the loading of pre-installed stuff (python, specific softwares, ...). All the available modules can be listed using the following command:
 
@@ -45,11 +45,11 @@ Various scripts are provided in this repository. But for now let's have a look a
 #!/bin/bash
 
 # Slurm submission script, serial job
-# CRIHAN v 1.00 - Jan 2017 
+# CRIHAN v 1.00 - Jan 2017
 # support@criann.fr
 
 # If the node can be shared with other users
-#SBATCH --shared
+#SBATCH --share
 
 # Time limit for the calculation (48:00:00 max)
 #SBATCH --time 24:00:00
@@ -114,10 +114,9 @@ Please not that loading and stuff can be done out of a slurm script.
 
 ### Sharing the system with others
 
-When starting calculation on a distributed system, please always be aware that other users may want to use the system. Thus if you do not plan to use all the resources of a node, do not put the "exclusive" option, use the "shared". If the shared option is used, be aware that slurm will only lock one CPU core if the desired number is not specified. 
+When starting calculation on a distributed system, please always be aware that other users may want to use the system. Thus if you do not plan to use all the resources of a node, do not put the "exclusive" option, use the "share". If the "share" option is used, be aware that slurm will only lock one CPU core if the desired number is not specified.
 
 The recommendation is, if there is no special need for a high number of CPUs to ask for N_CPU * N_RESERVED_GPU / N_GPU. For instance on a node with 4 GPUs and 32 CPUs it is recommended to ask for 8 CPUs per reserved GPU.
-
 
 ## Available examples
 
