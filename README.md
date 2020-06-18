@@ -1,6 +1,6 @@
 # Examples to start calculation on the CRIANN super-calculator (using slurm)
 
-This repository gives basic examples to run calculation on the [CRIANN super-calculator](https://www.criann.fr/). This repository focuses on the usage of the GPUs mainly for deep learning (although the code provided can be modified to other usages). **Please keep in mind that some of the details may not be up-to-date.**
+This repository gives basic examples to run calculation on the [CRIANN super-calculator](https://www.criann.fr/). This repository focuses on the usage of the GPUs for deep learning (although the code provided can be modified for other usages). **Please keep in mind that some of the details may not be up-to-date.**
 
 If you work in the public french system, you may also want to check the national calculator, [Jean Zay](calculateur) (this [page](calculateur) may also be useful).
 
