@@ -39,7 +39,7 @@ In order to queue a job, one need to write a script (script.sl) and submit it:
 sbatch script.sl
 ```
 
-Various scripts are provided in this repository. But for now let's have a look at a simple script:
+Various scripts are provided in this repository. But for now let's have a look at a simple one:
 
 ```bash
 #!/bin/bash
