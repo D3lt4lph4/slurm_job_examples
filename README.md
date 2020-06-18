@@ -2,7 +2,7 @@
 
 This repository gives basic examples to run calculation on the [CRIANN super-calculator](https://www.criann.fr/). This repository focuses on the usage of the GPUs for deep learning (although the code provided can be modified for other usages). **Please keep in mind that some of the details may not be up-to-date.**
 
-If you work in the public french system, you may also want to check the national calculator, [Jean Zay](calculateur) (this [page](calculateur) may also be useful).
+If you work in the public french system, you may also want to check the national super-calculator, [Jean Zay](calculateur) (this [page](calculateur) may also be useful) as it should not be too hard to get some hours for a project.
 
 ## Available ressources
 
