@@ -9,3 +9,5 @@ Please not that the example is suboptimal in many ways and should be optimized t
 As the scripts makes usage of the environment variable "CUDA_VISIBLE_DEVICES", it will not support multi-node calculation. Be also aware that this example works well for this peculiar setting, i.e one calculation per gpus in parallel without interaction between them, there is no guarantee that it will work for other settings.
 
 Alternatively, the calculation could be started multiple times using the shared option in the script.
+
+**Be aware that this solution does not use srun and may be subject to un-predicted effects.**
