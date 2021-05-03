@@ -4,7 +4,6 @@
 # CRIHAN v 1.00 - Jan 2017 
 # support@criann.fr
 
-#SBATCH --share
 #SBATCH --time 48:00:00
 #SBATCH --mem 100000 
 #SBATCH --mail-type ALL

@@ -48,9 +48,6 @@ Various scripts are provided in this repository. But for now let's have a look a
 # CRIHAN v 1.00 - Jan 2017
 # support@criann.fr
 
-# If the node can be shared with other users
-#SBATCH --share
-
 # Time limit for the calculation (48:00:00 max)
 #SBATCH --time 24:00:00
 
